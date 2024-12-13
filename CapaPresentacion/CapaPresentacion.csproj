@@ -1,0 +1,561 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8F5FD67C-BF3D-49D1-A914-496A2DEE27EB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CapaPresentacion</RootNamespace>
+    <AssemblyName>CapaPresentacion</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastReport, Version=2020.1.17.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c" />
+    <Reference Include="FastReport.Bars, Version=2020.1.17.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c" />
+    <Reference Include="FastReport.Editor, Version=2020.1.17.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c" />
+    <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.6.6.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\..\..\Downloads\Librerias\framwork-main\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2">
+      <HintPath>..\..\..\..\Downloads\Librerias\framwork-main\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI2 WinForms\.net 4.0\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="SQLBackup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLBackup.1.1.0\lib\SQLBackup.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Categorias\fmcategoriaactualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Categorias\fmcategoriaactualizar.Designer.cs">
+      <DependentUpon>fmcategoriaactualizar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Categorias\fmcategoriaregistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Categorias\fmcategoriaregistrar.Designer.cs">
+      <DependentUpon>fmcategoriaregistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Categorias\fmcategoriasbusqueda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Categorias\fmcategoriasbusqueda.Designer.cs">
+      <DependentUpon>fmcategoriasbusqueda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\fmclienteregistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\fmclienteregistrar.Designer.cs">
+      <DependentUpon>fmclienteregistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\fmclientesactualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\fmclientesactualizar.Designer.cs">
+      <DependentUpon>fmclientesactualizar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\fmclientesbusqueda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\fmclientesbusqueda.Designer.cs">
+      <DependentUpon>fmclientesbusqueda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\consultas\fmcomprasporfechas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\consultas\fmcomprasporfechas.Designer.cs">
+      <DependentUpon>fmcomprasporfechas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\fmcompractualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\fmcompractualizar.Designer.cs">
+      <DependentUpon>fmcompractualizar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\fmcomprasbusqueda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\fmcomprasbusqueda.Designer.cs">
+      <DependentUpon>fmcomprasbusqueda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\fmcomprasregistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\fmcomprasregistrar.Designer.cs">
+      <DependentUpon>fmcomprasregistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\fmcomprasver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\fmcomprasver.Designer.cs">
+      <DependentUpon>fmcomprasver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\fmproductoseleccionar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\fmproductoseleccionar.Designer.cs">
+      <DependentUpon>fmproductoseleccionar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\fmsuplidorseleccionar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\fmsuplidorseleccionar.Designer.cs">
+      <DependentUpon>fmsuplidorseleccionar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmSistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmSistema.Designer.cs">
+      <DependentUpon>fmSistema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\fminventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\fminventario.Designer.cs">
+      <DependentUpon>fminventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Laboratorios\fmlaboratorioactualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laboratorios\fmlaboratorioactualizar.Designer.cs">
+      <DependentUpon>fmlaboratorioactualizar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Laboratorios\fmlaboratorioregistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laboratorios\fmlaboratorioregistrar.Designer.cs">
+      <DependentUpon>fmlaboratorioregistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Laboratorios\fmlaboratoriosbusqueda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laboratorios\fmlaboratoriosbusqueda.Designer.cs">
+      <DependentUpon>fmlaboratoriosbusqueda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pagos\fmpagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pagos\fmpagos.Designer.cs">
+      <DependentUpon>fmpagos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pagos\fmpagover.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pagos\fmpagover.Designer.cs">
+      <DependentUpon>fmpagover.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Productos\fmcategoriacrear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\fmcategoriacrear.Designer.cs">
+      <DependentUpon>fmcategoriacrear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Productos\fmlaboratorioseleccionar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\fmlaboratorioseleccionar.Designer.cs">
+      <DependentUpon>fmlaboratorioseleccionar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Productos\fmproductoactualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\fmproductoactualizar.Designer.cs">
+      <DependentUpon>fmproductoactualizar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Productos\fmproductosbusqueda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\fmproductosbusqueda.Designer.cs">
+      <DependentUpon>fmproductosbusqueda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Productos\fmproductosregistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\fmproductosregistrar.Designer.cs">
+      <DependentUpon>fmproductosregistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Productos\fmproductoVer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\fmproductoVer.Designer.cs">
+      <DependentUpon>fmproductoVer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Productos\fmseccionregistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\fmseccionregistrar.Designer.cs">
+      <DependentUpon>fmseccionregistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Productos\fmubicacionregistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\fmubicacionregistrar.Designer.cs">
+      <DependentUpon>fmubicacionregistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\fmimprimirReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\fmimprimirReporte.Designer.cs">
+      <DependentUpon>fmimprimirReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\reportesinformaciongeneral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\reportesinformaciongeneral.Designer.cs">
+      <DependentUpon>reportesinformaciongeneral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Roles\fmrolesregistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Roles\fmrolesregistrar.Designer.cs">
+      <DependentUpon>fmrolesregistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Secciones\fmseccionesactualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Secciones\fmseccionesactualizar.Designer.cs">
+      <DependentUpon>fmseccionesactualizar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Secciones\fmseccionesbusqueda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Secciones\fmseccionesbusqueda.Designer.cs">
+      <DependentUpon>fmseccionesbusqueda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Secciones\fmseccionesregistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Secciones\fmseccionesregistrar.Designer.cs">
+      <DependentUpon>fmseccionesregistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Suplidores\fmsuplidoractualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Suplidores\fmsuplidoractualizar.Designer.cs">
+      <DependentUpon>fmsuplidoractualizar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Suplidores\fmsuplidorbusqueda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Suplidores\fmsuplidorbusqueda.Designer.cs">
+      <DependentUpon>fmsuplidorbusqueda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Suplidores\fmsuplidoresregistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Suplidores\fmsuplidoresregistrar.Designer.cs">
+      <DependentUpon>fmsuplidoresregistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ubicaciones\fmubicacionactualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ubicaciones\fmubicacionactualizar.Designer.cs">
+      <DependentUpon>fmubicacionactualizar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ubicaciones\fmubicacionesbusqueda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ubicaciones\fmubicacionesbusqueda.Designer.cs">
+      <DependentUpon>fmubicacionesbusqueda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ubicaciones\fmubicacionesregistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ubicaciones\fmubicacionesregistrar.Designer.cs">
+      <DependentUpon>fmubicacionesregistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\fmusuarioactualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\fmusuarioactualizar.Designer.cs">
+      <DependentUpon>fmusuarioactualizar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\fmusuarioregistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\fmusuarioregistrar.Designer.cs">
+      <DependentUpon>fmusuarioregistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\fmusuariosBusqueda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\fmusuariosBusqueda.Designer.cs">
+      <DependentUpon>fmusuariosBusqueda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\Consultas\fmventasporfechas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\Consultas\fmventasporfechas.Designer.cs">
+      <DependentUpon>fmventasporfechas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\fmclienteseleccionar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\fmclienteseleccionar.Designer.cs">
+      <DependentUpon>fmclienteseleccionar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\fmventasactualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\fmventasactualizar.Designer.cs">
+      <DependentUpon>fmventasactualizar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\fmventasbusqueda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\fmventasbusqueda.Designer.cs">
+      <DependentUpon>fmventasbusqueda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\fmventasregistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\fmventasregistrar.Designer.cs">
+      <DependentUpon>fmventasregistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\fmventasver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\fmventasver.Designer.cs">
+      <DependentUpon>fmventasver.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Categorias\fmcategoriaactualizar.resx">
+      <DependentUpon>fmcategoriaactualizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Categorias\fmcategoriaregistrar.resx">
+      <DependentUpon>fmcategoriaregistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Categorias\fmcategoriasbusqueda.resx">
+      <DependentUpon>fmcategoriasbusqueda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\fmclienteregistrar.es-DO.resx">
+      <DependentUpon>fmclienteregistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\fmclienteregistrar.resx">
+      <DependentUpon>fmclienteregistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\fmclienteregistrar.zu.resx">
+      <DependentUpon>fmclienteregistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\fmclientesactualizar.resx">
+      <DependentUpon>fmclientesactualizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\fmclientesbusqueda.resx">
+      <DependentUpon>fmclientesbusqueda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\consultas\fmcomprasporfechas.resx">
+      <DependentUpon>fmcomprasporfechas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\fmcompractualizar.resx">
+      <DependentUpon>fmcompractualizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\fmcomprasbusqueda.resx">
+      <DependentUpon>fmcomprasbusqueda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\fmcomprasregistrar.resx">
+      <DependentUpon>fmcomprasregistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\fmcomprasver.resx">
+      <DependentUpon>fmcomprasver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\fmproductoseleccionar.resx">
+      <DependentUpon>fmproductoseleccionar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\fmsuplidorseleccionar.resx">
+      <DependentUpon>fmsuplidorseleccionar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmSistema.resx">
+      <DependentUpon>fmSistema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\fminventario.resx">
+      <DependentUpon>fminventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laboratorios\fmlaboratorioactualizar.resx">
+      <DependentUpon>fmlaboratorioactualizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laboratorios\fmlaboratorioregistrar.resx">
+      <DependentUpon>fmlaboratorioregistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laboratorios\fmlaboratoriosbusqueda.resx">
+      <DependentUpon>fmlaboratoriosbusqueda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pagos\fmpagos.resx">
+      <DependentUpon>fmpagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pagos\fmpagover.resx">
+      <DependentUpon>fmpagover.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\fmcategoriacrear.resx">
+      <DependentUpon>fmcategoriacrear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\fmlaboratorioseleccionar.resx">
+      <DependentUpon>fmlaboratorioseleccionar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\fmproductoactualizar.resx">
+      <DependentUpon>fmproductoactualizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\fmproductosbusqueda.resx">
+      <DependentUpon>fmproductosbusqueda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\fmproductosregistrar.resx">
+      <DependentUpon>fmproductosregistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\fmproductoVer.resx">
+      <DependentUpon>fmproductoVer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\fmseccionregistrar.resx">
+      <DependentUpon>fmseccionregistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\fmubicacionregistrar.resx">
+      <DependentUpon>fmubicacionregistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Reportes\fmimprimirReporte.resx">
+      <DependentUpon>fmimprimirReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\reportesinformaciongeneral.resx">
+      <DependentUpon>reportesinformaciongeneral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Roles\fmrolesregistrar.resx">
+      <DependentUpon>fmrolesregistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Secciones\fmseccionesactualizar.resx">
+      <DependentUpon>fmseccionesactualizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Secciones\fmseccionesbusqueda.resx">
+      <DependentUpon>fmseccionesbusqueda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Secciones\fmseccionesregistrar.resx">
+      <DependentUpon>fmseccionesregistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Suplidores\fmsuplidoractualizar.resx">
+      <DependentUpon>fmsuplidoractualizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Suplidores\fmsuplidorbusqueda.resx">
+      <DependentUpon>fmsuplidorbusqueda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Suplidores\fmsuplidoresregistrar.resx">
+      <DependentUpon>fmsuplidoresregistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ubicaciones\fmubicacionactualizar.resx">
+      <DependentUpon>fmubicacionactualizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ubicaciones\fmubicacionesbusqueda.resx">
+      <DependentUpon>fmubicacionesbusqueda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ubicaciones\fmubicacionesregistrar.resx">
+      <DependentUpon>fmubicacionesregistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\fmusuarioactualizar.resx">
+      <DependentUpon>fmusuarioactualizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\fmusuarioregistrar.resx">
+      <DependentUpon>fmusuarioregistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\fmusuariosBusqueda.resx">
+      <DependentUpon>fmusuariosBusqueda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\Consultas\fmventasporfechas.resx">
+      <DependentUpon>fmventasporfechas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\fmclienteseleccionar.resx">
+      <DependentUpon>fmclienteseleccionar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\fmventasactualizar.resx">
+      <DependentUpon>fmventasactualizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\fmventasbusqueda.resx">
+      <DependentUpon>fmventasbusqueda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\fmventasregistrar.resx">
+      <DependentUpon>fmventasregistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\fmventasver.resx">
+      <DependentUpon>fmventasver.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
+      <Project>{ae631355-adb0-4c29-a98c-1015f7606c05}</Project>
+      <Name>CapaNegocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

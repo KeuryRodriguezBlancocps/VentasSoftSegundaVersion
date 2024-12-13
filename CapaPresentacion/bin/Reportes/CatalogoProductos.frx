@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" TextQuality="Regular" ReportInfo.Description="Demonstrates the &quot;Even rows&quot; feature. To use it:&#13;&#10;- go to the &quot;Report|Styles...&quot; menu;&#13;&#10;- create a new style, name it &quot;EvenRows&quot;;&#13;&#10;- select the fill color for this style;&#13;&#10;- return to the report page, select the data band;&#13;&#10;- go to the &quot;Properties&quot; window, choose the &quot;EvenStyle&quot; property and set it to &quot;EvenRows&quot;. You may also use the &quot;Style&quot; toolbar and choose the style from it.&#13;&#10;Note: to display the &quot;Style&quot; toolbar, go to the &quot;View|Toolbars&quot; menu." ReportInfo.Created="01/18/2008 00:33:09" ReportInfo.Modified="12/02/2024 14:29:04" ReportInfo.CreatorVersion="2020.1.17.0">
+  <Styles>
+    <Style Name="EvenRows" Fill.Color="AntiqueWhite" Font="Arial, 10pt"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFf644O4fHQURdGmAL49g67eI00HoDBVuBfIVfnFQ5hsDkze76ig/4QTafeyiNn3NWifQ1We6BEpPHDkBpFOU770B+fguPZ26jSEtl3cmp5NeEBfbNkPeO4K+ETsAO4V63">
+      <TableDataSource Name="Table" Alias="CatalogoProductos" DataType="System.Int32" Enabled="true" SelectCommand="exec ProductosBusqueda @Busqueda">
+        <Column Name="IdProducto" DataType="System.Int32"/>
+        <Column Name="IdUsuario" DataType="System.Int32"/>
+        <Column Name="CodProducto" DataType="System.String"/>
+        <Column Name="Producto" DataType="System.String"/>
+        <Column Name="Descripcion" DataType="System.String"/>
+        <Column Name="Categoria" DataType="System.String"/>
+        <Column Name="IdCategoria" DataType="System.Int32"/>
+        <Column Name="IdUbicacion" DataType="System.Int32"/>
+        <Column Name="Ubicacion" DataType="System.String"/>
+        <Column Name="IdSeccion" DataType="System.Int32"/>
+        <Column Name="Seccion" DataType="System.String"/>
+        <Column Name="Imagen" DataType="System.Byte[]" BindableControl="Picture"/>
+        <Column Name="AplicaImpuesto" DataType="System.String"/>
+        <Column Name="Impuesto" DataType="System.Int32"/>
+        <Column Name="Stock" DataType="System.Int32"/>
+        <Column Name="Costo" DataType="System.Decimal"/>
+        <Column Name="Precio" DataType="System.Decimal"/>
+        <Column Name="FechaCreacion" DataType="System.DateTime"/>
+        <Column Name="Estado" DataType="System.String"/>
+        <Column Name="Usuario" DataType="System.String"/>
+        <CommandParameter Name="Busqueda" DataType="22" Expression="[Busqueda]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="Busqueda" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="66.15" CanGrow="true">
+      <TextObject Name="Text9" Top="37.8" Width="718.2" Height="28.35" Text="Catálogo de productos" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 14pt, style=Bold"/>
+      <TextObject Name="Text11" Width="718.2" Height="28.35" Anchor="Top, Left, Right" Fill.Color="WhiteSmoke" CanGrow="true" CanShrink="true" Text="Sistema VentasSoft&#13;&#10;" Padding="4, 4, 4, 4" Font="Tahoma, 8pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="68.82" Width="718.2" Height="28.35">
+      <TextObject Name="Text2" Width="113.4" Height="28.35" Fill.Color="75, 156, 180" Text="Codigo del producto" VertAlign="Center" Font="Tahoma, 7pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text4" Left="103.95" Width="94.5" Height="28.35" Fill.Color="75, 156, 180" Text="Producto" VertAlign="Center" Font="Tahoma, 7pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text6" Left="198.45" Width="85.05" Height="28.35" Fill.Color="75, 156, 180" Text="Categoría" VertAlign="Center" Font="Tahoma, 7pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text8" Left="283.5" Width="75.6" Height="28.35" Fill.Color="75, 156, 180" Text="Ubicación" VertAlign="Center" Font="Tahoma, 7pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text13" Left="359.1" Width="75.6" Height="28.35" Fill.Color="75, 156, 180" Text="Sección" VertAlign="Center" Font="Tahoma, 7pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text14" Left="434.7" Width="75.6" Height="28.35" Fill.Color="75, 156, 180" Text="Costo" VertAlign="Center" Font="Tahoma, 7pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text15" Left="510.3" Width="75.6" Height="28.35" Fill.Color="75, 156, 180" Text="Precio" VertAlign="Center" Font="Tahoma, 7pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text16" Left="585.9" Width="122.85" Height="28.35" Fill.Color="75, 156, 180" Text="Fecha creación" VertAlign="Center" Font="Tahoma, 7pt, style=Bold" TextFill.Color="White"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="99.83" Width="718.2" Height="18.9" EvenStyle="EvenRows" DataSource="Table">
+      <TextObject Name="Text1" Left="9.45" Width="94.5" Height="18.9" CanBreak="false" Text="[CatalogoProductos.CodProducto]" AutoWidth="true" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 6pt, style=Bold"/>
+      <TextObject Name="Text3" Left="103.95" Width="94.5" Height="18.9" CanBreak="false" Text="[CatalogoProductos.Producto]" AutoWidth="true" VertAlign="Center" Font="Tahoma, 6pt, style=Bold"/>
+      <TextObject Name="Text5" Left="198.45" Width="85.05" Height="18.9" CanBreak="false" Text="[CatalogoProductos.Categoria]" AutoWidth="true" VertAlign="Center" Font="Tahoma, 6pt, style=Bold"/>
+      <TextObject Name="Text7" Left="283.5" Width="75.6" Height="18.9" CanBreak="false" Text="[CatalogoProductos.Ubicacion]" AutoWidth="true" VertAlign="Center" Font="Tahoma, 6pt, style=Bold"/>
+      <TextObject Name="Text17" Left="359.1" Width="75.6" Height="18.9" CanBreak="false" Text="[CatalogoProductos.Seccion]" AutoWidth="true" VertAlign="Center" Font="Tahoma, 6pt, style=Bold"/>
+      <TextObject Name="Text18" Left="434.7" Width="75.6" Height="18.9" CanBreak="false" Text="[CatalogoProductos.Costo]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator="." Format.CurrencySymbol="$" Format.PositivePattern="3" Format.NegativePattern="8" AutoWidth="true" HorzAlign="Right" VertAlign="Center" Font="Tahoma, 6pt, style=Bold" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text19" Left="510.3" Width="75.6" Height="18.9" CanBreak="false" Text="[CatalogoProductos.Precio]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator="." Format.CurrencySymbol="$" Format.PositivePattern="3" Format.NegativePattern="8" AutoWidth="true" HorzAlign="Right" VertAlign="Center" Font="Tahoma, 6pt, style=Bold" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text20" Left="585.9" Width="132.3" Height="18.9" CanBreak="false" Text="[CatalogoProductos.FechaCreacion]" Format="Date" Format.Format="d" AutoWidth="true" VertAlign="Center" Font="Tahoma, 6pt, style=Bold"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="121.4" Width="718.2" Height="28.35" Fill.Color="WhiteSmoke">
+      <TextObject Name="Text10" Left="614.25" Top="9.45" Width="94.5" Height="18.9" Text="[PageN]" HorzAlign="Right" Font="Tahoma, 8pt"/>
+      <TextObject Name="Text12" Left="9.45" Width="217.35" Height="28.35" Cursor="Hand" Hyperlink.Value="https://www.fast-report.com/en/product/fast-report-net/" Text="Generated by FastReport .NET" VertAlign="Center" Font="Tahoma, 8pt, style=Underline" TextFill.Color="Blue"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

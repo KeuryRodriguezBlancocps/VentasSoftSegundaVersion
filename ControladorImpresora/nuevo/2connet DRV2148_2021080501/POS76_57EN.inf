@@ -1,0 +1,69 @@
+;
+;       Printer Installation File
+;
+;        List of supported printers, manufacturers
+;
+
+[Version]
+Signature="$Windows NT$"
+Provider=%MS%
+;LayoutFile=ntprint.inf
+ClassGUID={4D36E979-E325-11CE-BFC1-08002BE10318}
+Class=Printer
+DriverVer=12/14/2020,04.02.0.1
+CatalogFile=Drv2147s.cat
+
+;
+; Manufacturer section.
+;
+; This section lists all of the manufacturers
+; that we will display in the Dialog box
+;
+
+[Manufacturer]
+"PRINTER"=PRINTER,NTamd64,NTia64
+
+;
+; Model Specifications Section
+;
+
+[PRINTER]
+"76mm Series Printer" = PRINTER.GPD
+
+[PRINTER.NTamd64]
+"76mm Series Printer" = PRINTER.GPD
+
+[PRINTER.NTia64]
+"76mm Series Printer" = PRINTER.GPD
+
+;
+; Installer section(s) referenced above.
+;
+
+[PRINTER.GPD]
+CopyFiles=@POS76_57EN.GPD
+DataSection=UNIDRV_DATA
+DataFile=POS76_57EN.GPD
+Include=NTPRINT.INF
+Needs=UNIDRV.OEM
+
+[DestinationDirs]
+DefaultDestDir=66000
+
+[SourceDisksNames]
+1 = %disk1%,,,
+
+[SourceDisksFiles.x86]
+POS76_57EN.GPD = 1
+
+[SourceDisksFiles.amd64]
+POS76_57EN.GPD = 1
+
+[SourceDisksFiles.ia64]
+POS76_57EN.GPD = 1
+
+[Strings]
+PrinterClassName="Printers"
+PRINTER="PRINTER"
+disk1="Printer Driver Setup Disk"
+

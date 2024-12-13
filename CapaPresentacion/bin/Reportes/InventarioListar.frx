@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" TextQuality="Regular" ReportInfo.Description="Demonstrates the &quot;Even rows&quot; feature. To use it:&#13;&#10;- go to the &quot;Report|Styles...&quot; menu;&#13;&#10;- create a new style, name it &quot;EvenRows&quot;;&#13;&#10;- select the fill color for this style;&#13;&#10;- return to the report page, select the data band;&#13;&#10;- go to the &quot;Properties&quot; window, choose the &quot;EvenStyle&quot; property and set it to &quot;EvenRows&quot;. You may also use the &quot;Style&quot; toolbar and choose the style from it.&#13;&#10;Note: to display the &quot;Style&quot; toolbar, go to the &quot;View|Toolbars&quot; menu." ReportInfo.Created="01/18/2008 00:33:09" ReportInfo.Modified="12/07/2024 19:33:31" ReportInfo.CreatorVersion="2020.1.17.0">
+  <Styles>
+    <Style Name="EvenRows" Fill.Color="AntiqueWhite" Font="Arial, 10pt"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFf644O4fHQURdGmAL49g67eI00HoDBVuBfIVfnFQ5hsDkze76ig/4QTafeyiNn3NWifQ1We6BEpPHDkBpFOU770B+fguPZ26jSEtl3cmp5Neum0cCnjZrHYKjK6FH6VMv"/>
+    <MsSqlDataConnection Name="Connection1" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFf644O4fHQURdGmAL49g67eI00HoDBVuBfIVfnFQ5hsDkze76ig/4QTafeyiNn3NWifQ1We6BEpPHDkBpFOU770B+fguPZ26jSEtl3cmp5Ndycz+NFmP40AqDtVxZ56gE">
+      <TableDataSource Name="Table1" Alias="InventarioActual" DataType="System.Int32" Enabled="true" SelectCommand="exec inventariolistar @Busqueda">
+        <Column Name="CodProducto" DataType="System.String"/>
+        <Column Name="Producto" DataType="System.String"/>
+        <Column Name="Categoria" DataType="System.String"/>
+        <Column Name="Ubicacion" DataType="System.String"/>
+        <Column Name="Nombre" DataType="System.String"/>
+        <Column Name="Existencia" DataType="System.Int32"/>
+        <CommandParameter Name="Busqueda" DataType="22" Expression="[Busqueda]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="Busqueda" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="66.15" CanGrow="true">
+      <TextObject Name="Text9" Top="18.9" Width="718.2" Height="28.35" Text="Inventario" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 14pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="69.11" Width="718.2" Height="28.35">
+      <TextObject Name="Text2" Width="94.5" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="CodProducto" VertAlign="Center" Font="Tahoma, 8pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text4" Left="94.5" Width="122.85" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="Producto" VertAlign="Center" Font="Tahoma, 8pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text6" Left="217.35" Width="207.9" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="Categoria" VertAlign="Center" Font="Tahoma, 8pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text13" Left="425.25" Width="103.95" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="Ubicacion" VertAlign="Center" Font="Tahoma, 8pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text14" Left="529.2" Width="113.4" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="Seccion" VertAlign="Center" Font="Tahoma, 8pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text15" Left="642.6" Width="75.6" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="Existencia" VertAlign="Center" Font="Tahoma, 8pt, style=Bold" TextFill.Color="White"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="100.43" Width="718.2" Height="18.9" EvenStyle="EvenRows" DataSource="Table1">
+      <TextObject Name="Text1" Width="94.5" Height="18.9" CanGrow="true" CanBreak="false" Text="[InventarioActual.CodProducto]" Font="Arial, 10pt"/>
+      <TextObject Name="Text3" Left="94.5" Width="122.85" Height="18.9" CanGrow="true" CanBreak="false" Text="[InventarioActual.Producto]" Font="Arial, 10pt"/>
+      <TextObject Name="Text5" Left="217.35" Width="207.9" Height="18.9" CanGrow="true" CanBreak="false" Text="[InventarioActual.Categoria]" Font="Arial, 10pt"/>
+      <TextObject Name="Text7" Left="425.25" Width="103.95" Height="18.9" CanGrow="true" CanBreak="false" Text="[InventarioActual.Ubicacion]" Font="Arial, 10pt"/>
+      <TextObject Name="Text8" Left="529.2" Width="113.4" Height="18.9" CanGrow="true" CanBreak="false" Text="[InventarioActual.Nombre]" Font="Arial, 10pt"/>
+      <TextObject Name="Text11" Left="642.6" Width="75.6" Height="18.9" CanGrow="true" CanBreak="false" Text="[InventarioActual.Existencia]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="," Format.GroupSeparator="." Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" Font="Arial, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="122.29" Width="718.2" Height="28.35" Fill.Color="WhiteSmoke">
+      <TextObject Name="Text10" Left="614.25" Top="9.45" Width="94.5" Height="18.9" Text="[PageN]" HorzAlign="Right" Font="Tahoma, 8pt"/>
+      <TextObject Name="Text12" Left="9.45" Width="217.35" Height="28.35" Cursor="Hand" Hyperlink.Value="https://www.fast-report.com/en/product/fast-report-net/" Text="Generated by FastReport .NET" VertAlign="Center" Font="Tahoma, 8pt, style=Underline" TextFill.Color="Blue"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

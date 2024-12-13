@@ -1,0 +1,418 @@
+*GPDFileName: "POS58EN.gpd"
+*GPDFileVersion: "1.0"
+*GPDSpecVersion: "1.0"
+*Include: "StdNames.gpd"
+*ModelName: "58mm Series Printer"
+*MasterUnits: PAIR(203, 203)
+*PrinterType: SERIAL
+
+*%******************************************************************************************
+*%                                      Orientation
+*%******************************************************************************************
+*Feature: Orientation
+{
+    *rcNameID: =ORIENTATION_DISPLAY
+    *DefaultOption: PORTRAIT
+    *Option: PORTRAIT
+    {
+        *rcNameID: =PORTRAIT_DISPLAY
+    }
+    *Option: LANDSCAPE_CC270
+    {
+        *rcNameID: =LANDSCAPE_DISPLAY
+    }
+}
+
+*%******************************************************************************************
+*%                                      Input Bin
+*%******************************************************************************************
+*Feature: InputBin
+{
+   *rcNameID: =PAPER_SOURCE_DISPLAY
+    *DefaultOption: UPPER
+    *Option: UPPER
+    {
+        *rcNameID: =UPPER_TRAY_DISPLAY
+    }
+}
+
+*Feature: OutputBin
+{
+    *%*rcNameID: =OUTPUTBIN_DISPLAY
+    *%rcNameID: 291
+    *Name: "Cutting"
+    *DefaultOption: Option3
+    *Option: Option1
+    {
+        *Name: "NoCut"
+        *%OptionID: 274
+        *Command: CmdSelect
+        {
+            *Order: DOC_SETUP.3
+            *Cmd: ""		*%不切
+        }
+    }
+    *Option: Option2
+    {
+        *Name: "(Doc)Part Cut"
+        *%OptionID: 275
+        *Command: CmdSelect
+        {
+            *Order: DOC_SETUP.3
+            *Cmd: ""		*%半切（文档）
+        }
+    }
+    *Option: Option3
+    {
+        *Name: "(Doc)Full Cut"
+        *%OptionID: 276
+        *Command: CmdSelect
+        {
+            *Order: DOC_SETUP.3
+            *Cmd: ""		*%全切（文档）
+        }
+    }
+	*Option: Option4
+    {
+        *Name: "(Page)Part Cut"
+        *%OptionID: 277
+        *Command: CmdSelect
+        {
+            *Order: DOC_SETUP.3
+            *Cmd: ""		*%半切（页）
+        }
+    }
+    *Option: Option5
+    {
+        *Name: "(Page)Full Cut"
+        *%OptionID: 278
+        *Command: CmdSelect
+        {
+            *Order: DOC_SETUP.3
+            *Cmd: ""		*%全切（页）
+        }
+    }
+}
+
+*%******************************************************************************************
+*%                                      Resolution
+*%******************************************************************************************
+*Feature: Resolution
+{
+    *rcNameID: =RESOLUTION_DISPLAY
+    *DefaultOption: Option1
+    *Option: Option1
+    {
+        *Name: "203 x 203 " =DOTS_PER_INCH
+        *DPI: PAIR(203, 203)
+        *TextDPI: PAIR(203, 203)
+        *SpotDiameter: 100
+        *Command: CmdSendBlockData 
+	{ 
+		*Cmd : "<16>" %c{NumOfDataBytes} 
+	}
+    }
+}
+
+*%******************************************************************************************
+*%                                      Paper Size
+*%******************************************************************************************
+*Feature: PaperSize
+{
+    *rcNameID: =PAPER_SIZE_DISPLAY
+    *DefaultOption: Option2
+    *Option: Option1
+    {
+        *Name: "58 x 210 mm"
+        *%Option: "58 x 210 mm"
+        *PageDimensions: PAIR(464, 1680)*%1680
+        *PrintableArea: PAIR(384, 1680)*%1680
+        *PrintableOrigin: PAIR(40, 0)
+    }
+
+    *Option: Option2
+    {
+        *Name: "58 x 297 mm"
+        *%Option: "58 x 297 mm"
+        *PageDimensions: PAIR(464, 2375)*%2375
+        *PrintableArea: PAIR(384, 2375)*%2375
+        *PrintableOrigin: PAIR(40, 0)
+    }
+
+    *Option: Option3
+    {
+        *Name: "58 x 3276 mm"
+        *%Option: "58 x 3276 mm"
+        *PageDimensions: PAIR(464, 26182)*%1680
+        *PrintableArea: PAIR(384, 26182)*%1680
+        *PrintableOrigin: PAIR(40, 0)
+    }
+
+    *Option: CUSTOMSIZE
+    {
+        *rcNameID: =USER_DEFINED_SIZE_DISPLAY
+        *MinSize: PAIR(320, 180)
+        *MaxSize: PAIR(464, 32767)
+        *MaxPrintableWidth: 464
+        *MinLeftMargin: 40
+        *CursorOrigin: PAIR(40,0)
+        *CenterPrintable?: TRUE
+    }
+}
+
+*%打印后走纸
+*Feature: TrailingMargin
+{
+    *Name: "Feed distance after print"
+    *FeatureType: PRINTER_PROPERTY
+    *DefaultOption: 0L
+
+    *Option: 0L
+    {
+        *Name: "0 Line"
+        *Command:CmdSelect
+        {
+            *Order: JOB_FINISH.1
+			*Cmd: "" 
+        }
+    }
+	*Option: 2L
+    {
+        *Name: "2 Line"
+        *Command:CmdSelect
+        {
+            *Order: JOB_FINISH.1
+			*Cmd: "<1B6402>" 
+        }
+    }
+	*Option: 4L
+    {
+        *Name: "4 Line"
+        *Command:CmdSelect
+        {
+            *Order: JOB_FINISH.1
+			*Cmd: "<1B6404>" 
+        }
+    }
+	*Option: 8L
+    {
+        *Name: "8 Line"
+        *Command:CmdSelect
+        {
+            *Order: JOB_FINISH.1
+			*Cmd: "<1B6408>" 
+        }
+    }
+}
+
+*%******************************************************************************************
+*%                                      MediaType commands
+*%******************************************************************************************
+*Feature: MediaType
+{
+    *rcNameID: =MEDIA_TYPE_DISPLAY
+    *DefaultOption: Option1
+    *Option: Option1
+    {
+        *Name: "no drawer"
+        *%Option: "no drawer"
+ 	*Command: CmdSelect
+        {
+            *Order: DOC_SETUP.2
+            *Cmd: ""			*%无钱箱
+        }
+    }
+    *Option: Option2
+    {
+        *Name: "open drawer #1 before printing"
+        *%Option: "open drawer #1 before printing"
+        *Command: CmdSelect
+        {
+            *Order: DOC_SETUP.2
+            *Cmd: "<1B>p<003232>"	*%打印前打开钱箱#1
+        }
+    }
+    *Option: Option3
+    {
+        *Name: "open drawer #2 before printing"
+        *%Option: "open drawer #2 before printing"
+        *Command: CmdSelect
+        {
+            *Order: DOC_SETUP.2
+            *Cmd: "<1B>p<013232>"	*%打印前打开钱箱#2
+        }
+    }
+    *Option: Option4
+    {
+        *Name: "open drawer #1+#2 before printing"
+        *%Option: "open drawer #1+#2 before printing"
+        *Command: CmdSelect
+        {
+            *Order: DOC_SETUP.2
+            *Cmd: "<1B>p<003232><1B>p<013232>"		*%打印前打开钱箱#1+#2"
+        }
+    }
+    *Option: Option5
+    {
+        *Name: "open drawer #1 after printing"
+        *%Option: "open drawer #1 after printing"
+        *Command: CmdSelect
+        {
+            *Order: JOB_FINISH.3
+            *Cmd: "<1B>p<003232>" 	*%打印后打开钱箱#1
+        }
+    }
+    *Option: Option6
+    {
+        *Name: "open drawer #2 after printing"
+        *%Option: "open drawer #2 after printing"
+        *Command: CmdSelect
+        {
+            *Order: JOB_FINISH.3
+            *Cmd: "<1B>p<013232>" 	*%打印后打开钱箱#2
+        }
+    }
+    *Option: Option7
+    {
+        *Name: "open drawer #1+#2 after printing"
+        *%Option: "open drawer #1+#2 after printing"
+        *Command: CmdSelect
+        {
+            *Order: JOB_FINISH.3
+            *Cmd: "<1B>p<003232><1B>p<013232>" *%打印后打开钱箱#1+#2
+        }
+    }
+}
+
+*%******************************************************************************************
+*%                                      Doc setup commands
+*%******************************************************************************************
+
+*Command: CmdStartJob
+{
+    *Order: JOB_SETUP.1
+    *Cmd: "<1B>@<1D4500><1D>D<01>"
+}
+*Command: CmdStartPage
+{
+    *Order: PAGE_SETUP.1
+    *Cmd: ""
+}
+
+*switch: OutputBin
+{
+    *case: Option1
+    {
+		*Command: CmdEndPage
+		{
+			*Order: PAGE_FINISH.3
+			*Cmd: ""    
+		}
+		*Command: CmdEndJob
+		{
+			*Order: JOB_FINISH.1
+			*Cmd: "<1501><1D4400>"				*%退出驱动打印模式,不切	   
+		}  	
+    }
+    *case: Option2
+    {
+		*Command: CmdEndPage
+		{
+			*Order: PAGE_FINISH.3
+			*Cmd: ""    
+		}
+		   *Command: CmdEndJob
+		{
+			*Order: JOB_FINISH.1
+			*Cmd: "<1501><1D4400><1D>V<42><00>"		*%退出驱动打印模式,半切（文档）     
+		}  
+    }
+    *case: Option3
+    {
+		*Command: CmdEndPage
+		{
+			*Order: PAGE_FINISH.3
+			*Cmd: ""    
+		}
+		*Command: CmdEndJob
+		{
+			*Order: JOB_FINISH.1
+			*Cmd: "<1501><1D4400><1D>V<41><00>"		*%退出驱动打印模式,全切（文档）    	   
+		}  
+    }
+    *case:Option4
+    {  
+		*Command: CmdEndPage
+		{
+			*Order: PAGE_FINISH.3
+			*Cmd: "<1501><1D>V<42><00>"    
+		}            
+		*Command: CmdEndJob
+		{
+			*Order: JOB_FINISH.1
+			*Cmd: "<1501><1D4400>"				*%退出驱动打印模式,半切（页）    
+		}
+    }
+	*case:Option5
+    {  
+		*Command: CmdEndPage
+		{
+			*Order: PAGE_FINISH.3
+			*Cmd: "<1501><1D>V<41><00>"    
+		}            
+		*Command: CmdEndJob
+		{
+			*Order: JOB_FINISH.1
+			*Cmd: "<1501><1D4400>"				*%退出驱动打印模式,全切（页） 
+		}
+    }
+}
+
+*%*Command: CmdCopies
+*%{
+	*%*Order: DOC_SETUP.13
+	*%*Cmd: ""
+*%}
+
+*%******************************************************************************************
+*%                                      Cursor and Page Commands
+*%******************************************************************************************
+*RotateCoordinate?: FALSE
+*RotateRaster?: FALSE
+*RotateFont?: FALSE
+*switch: Orientation
+{
+    *case: PORTRAIT
+    {
+        *TextCaps: LIST(TC_OP_CHARACTER,TC_RA_ABLE)
+    }
+    *case: LANDSCAPE_CC270
+    {
+        *TextCaps: LIST(TC_RA_ABLE)
+    }
+}
+*%*TextCaps: LIST(TC_CR_90,TC_UA_ABLE)
+*%*MemoryUsage: LIST(FONT, RASTER, VECTOR)
+
+*CursorXAfterCR: AT_CURSOR_X_ORIGIN
+*%*BadCursorMoveInGrxMode: LIST(X_PORTRAIT,Y_LANDSCAPE)
+*%*XMoveThreshold: 0
+*YMoveThreshold: *
+*YMoveUnit: 203
+*%*XMoveUnit: 203
+
+*Command: CmdYMoveRelDown { *Cmd : "<15>" %c[0,255]{max_repeat(DestYRel )} }
+*Command: CmdCR { *Cmd : "<>" }
+*Command: CmdLF { *Cmd : "<>" }
+*Command: CmdFF { *Cmd : "<>" }
+
+*EjectPageWithFF?: TRUE
+*OutputDataFormat: H_BYTE
+*OptimizeLeftBound?: FALSE
+*CursorXAfterSendBlockData: AT_GRXDATA_ORIGIN
+*%*CursorYAfterSendBlockData: AUTO_INCREMENT
+*CursorYAfterSendBlockData: NO_MOVE
+*DefaultCTT: 0
+
+
+

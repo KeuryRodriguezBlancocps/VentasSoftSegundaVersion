@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" TextQuality="Regular" ReportInfo.Description="Demonstrates the &quot;Even rows&quot; feature. To use it:&#13;&#10;- go to the &quot;Report|Styles...&quot; menu;&#13;&#10;- create a new style, name it &quot;EvenRows&quot;;&#13;&#10;- select the fill color for this style;&#13;&#10;- return to the report page, select the data band;&#13;&#10;- go to the &quot;Properties&quot; window, choose the &quot;EvenStyle&quot; property and set it to &quot;EvenRows&quot;. You may also use the &quot;Style&quot; toolbar and choose the style from it.&#13;&#10;Note: to display the &quot;Style&quot; toolbar, go to the &quot;View|Toolbars&quot; menu." ReportInfo.Created="01/18/2008 00:33:09" ReportInfo.Modified="12/02/2024 15:06:41" ReportInfo.CreatorVersion="2020.1.17.0">
+  <Styles>
+    <Style Name="EvenRows" Fill.Color="AntiqueWhite" Font="Arial, 10pt"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFf644O4fHQURdGmAL49g67eI00HoDBVuBfIVfnFQ5hsDkze76ig/4QTafeyiNn3NWifQ1We6BEpPHDkBpFOU770B+fguPZ26jSEtl3cmp5Nd98c25ay95l416vRJtxayC"/>
+    <MsSqlDataConnection Name="Connection1" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFf644O4fHQURdGmAL49g67eI00HoDBVuBfIVfnFQ5hsDkze76ig/4QTafeyiNn3NWifQ1We6BEpPHDkBpFOU770B+fguPZ26jSEtl3cmp5Nf2i4orNCORZ7SqmjrUJ54q">
+      <TableDataSource Name="Table1" Alias="Ventas" DataType="System.Int32" Enabled="true" SelectCommand="exec VentasBusqueda @Busqueda">
+        <Column Name="IdVenta" DataType="System.Int32"/>
+        <Column Name="IdUsuario" DataType="System.Int32"/>
+        <Column Name="Usuario" DataType="System.String"/>
+        <Column Name="IdCliente" DataType="System.Int32"/>
+        <Column Name="Cliente" DataType="System.String"/>
+        <Column Name="TipoComprobante" DataType="System.String"/>
+        <Column Name="NroComprobante" DataType="System.String"/>
+        <Column Name="MetodoPago" DataType="System.String"/>
+        <Column Name="TipoTarjeta" DataType="System.String"/>
+        <Column Name="NroTarjeta" DataType="System.String"/>
+        <Column Name="TarjetaHabiente" DataType="System.String"/>
+        <Column Name="EstadoVenta" DataType="System.String"/>
+        <Column Name="Descripcion" DataType="System.String"/>
+        <Column Name="Efectivo" DataType="System.Decimal"/>
+        <Column Name="MontoDebitado" DataType="System.Decimal"/>
+        <Column Name="Transferencia" DataType="System.Decimal"/>
+        <Column Name="Pago" DataType="System.Decimal"/>
+        <Column Name="SubTotal" DataType="System.Decimal"/>
+        <Column Name="Total" DataType="System.Decimal"/>
+        <Column Name="Debe" DataType="System.Decimal"/>
+        <Column Name="Devuelta" DataType="System.Decimal"/>
+        <Column Name="FechaCreacion" DataType="System.DateTime"/>
+        <CommandParameter Name="Busqueda" DataType="22" Expression="[Busqueda]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="Busqueda" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="66.15" CanGrow="true">
+      <TextObject Name="Text9" Top="37.8" Width="718.2" Height="28.35" Text="Ventas" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 14pt, style=Bold"/>
+      <TextObject Name="Text11" Width="718.2" Height="28.35" Anchor="Top, Left, Right" Fill.Color="WhiteSmoke" CanGrow="true" CanShrink="true" Text="Sistema VentasSoft" Padding="4, 4, 4, 4" Font="Tahoma, 8pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="68.65" Width="718.2" Height="28.35">
+      <TextObject Name="Text2" Width="94.5" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="Código de la venta" VertAlign="Center" Font="Tahoma, 6pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text4" Left="94.5" Width="56.7" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="Cliente" VertAlign="Center" Font="Tahoma, 6pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text6" Left="151.2" Width="113.4" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="Tipo de comprobante" VertAlign="Center" Font="Tahoma, 6pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text8" Left="264.6" Width="85.05" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="Comprobante" VertAlign="Center" Font="Tahoma, 6pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text13" Left="349.65" Width="85.05" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="Método de pago" VertAlign="Center" Font="Tahoma, 6pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text14" Left="434.7" Width="47.25" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="Estado" VertAlign="Center" Font="Tahoma, 6pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text15" Left="481.95" Width="56.7" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="Pagó" VertAlign="Center" Font="Tahoma, 6pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text16" Left="538.65" Width="56.7" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="Subtotal" VertAlign="Center" Font="Tahoma, 6pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text17" Left="595.35" Width="56.7" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="Total" VertAlign="Center" Font="Tahoma, 6pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text18" Left="652.05" Width="66.15" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="Fecha de creación" VertAlign="Center" Font="Tahoma, 6pt, style=Bold" TextFill.Color="White"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="99.5" Width="718.2" Height="18.9" EvenStyle="EvenRows" DataSource="Table1">
+      <TextObject Name="Text1" Width="103.95" Height="18.9" CanGrow="true" CanBreak="false" Text="[Ventas.IdVenta]" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 6pt, style=Bold"/>
+      <TextObject Name="Text3" Left="94.5" Width="56.7" Height="18.9" CanGrow="true" CanBreak="false" Text="[Ventas.Cliente]" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 6pt, style=Bold"/>
+      <TextObject Name="Text5" Left="151.2" Width="113.4" Height="18.9" CanGrow="true" CanBreak="false" Text="[Ventas.TipoComprobante]" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 6pt, style=Bold"/>
+      <TextObject Name="Text7" Left="264.6" Width="85.05" Height="18.9" CanGrow="true" CanBreak="false" Text="[Ventas.NroComprobante]" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 6pt, style=Bold"/>
+      <TextObject Name="Text19" Left="349.65" Width="85.05" Height="18.9" CanGrow="true" CanBreak="false" Text="[Ventas.MetodoPago]" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 6pt, style=Bold"/>
+      <TextObject Name="Text20" Left="434.7" Width="47.25" Height="18.9" CanGrow="true" CanBreak="false" Text="[Ventas.EstadoVenta]" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 6pt, style=Bold"/>
+      <TextObject Name="Text21" Left="481.95" Width="56.7" Height="18.9" CanGrow="true" CanBreak="false" Text="[Ventas.Pago]" Format="Currency" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 6pt, style=Bold" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text22" Left="538.65" Width="56.7" Height="18.9" CanGrow="true" CanBreak="false" Text="[Ventas.SubTotal]" Format="Currency" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 6pt, style=Bold" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text23" Left="595.35" Width="56.7" Height="18.9" CanGrow="true" CanBreak="false" Text="[Ventas.Total]" Format="Currency" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 6pt, style=Bold" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text24" Left="652.05" Width="66.15" Height="18.9" CanGrow="true" CanBreak="false" Text="[Ventas.FechaCreacion]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 6pt, style=Bold"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="120.9" Width="718.2" Height="28.35" Fill.Color="WhiteSmoke">
+      <TextObject Name="Text10" Left="614.25" Top="9.45" Width="94.5" Height="18.9" Text="[PageN]" HorzAlign="Right" Font="Tahoma, 8pt"/>
+      <TextObject Name="Text12" Left="9.45" Width="217.35" Height="28.35" Cursor="Hand" Hyperlink.Value="https://www.fast-report.com/en/product/fast-report-net/" Text="Generated by FastReport .NET" VertAlign="Center" Font="Tahoma, 8pt, style=Underline" TextFill.Color="Blue"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

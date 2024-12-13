@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" TextQuality="Regular" ReportInfo.Description="Demonstrates the &quot;Even rows&quot; feature. To use it:&#13;&#10;- go to the &quot;Report|Styles...&quot; menu;&#13;&#10;- create a new style, name it &quot;EvenRows&quot;;&#13;&#10;- select the fill color for this style;&#13;&#10;- return to the report page, select the data band;&#13;&#10;- go to the &quot;Properties&quot; window, choose the &quot;EvenStyle&quot; property and set it to &quot;EvenRows&quot;. You may also use the &quot;Style&quot; toolbar and choose the style from it.&#13;&#10;Note: to display the &quot;Style&quot; toolbar, go to the &quot;View|Toolbars&quot; menu." ReportInfo.Created="01/18/2008 00:33:09" ReportInfo.Modified="12/02/2024 14:46:10" ReportInfo.CreatorVersion="2020.1.17.0">
+  <Styles>
+    <Style Name="EvenRows" Fill.Color="AntiqueWhite" Font="Arial, 10pt"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFf644O4fHQURdGmAL49g67eI00HoDBVuBfIVfnFQ5hsDkze76ig/4QTafeyiNn3NWifQ1We6BEpPHDkBpFOU770B+fguPZ26jSEtl3cmp5NfFM3B+Lg6GS1p8kSOi9MCk">
+      <TableDataSource Name="Table" Alias="Compras" DataType="System.Int32" Enabled="true" SelectCommand="exec comprasbusqueda @Busqueda">
+        <Column Name="IdCompra" DataType="System.Int32"/>
+        <Column Name="IdUsuario" DataType="System.Int32"/>
+        <Column Name="Usuario" DataType="System.String"/>
+        <Column Name="IdSuplidor" DataType="System.Int32"/>
+        <Column Name="NombreSuplidor" DataType="System.String"/>
+        <Column Name="IdEmpresa" DataType="System.Int32"/>
+        <Column Name="NroComprobante" DataType="System.String"/>
+        <Column Name="MetodoPago" DataType="System.String"/>
+        <Column Name="TipoTarjeta" DataType="System.String"/>
+        <Column Name="EstadoCompra" DataType="System.String"/>
+        <Column Name="Descripcion" DataType="System.String"/>
+        <Column Name="NroTarjeta" DataType="System.String"/>
+        <Column Name="TarjetaHabiente" DataType="System.String"/>
+        <Column Name="Efectivo" DataType="System.Decimal"/>
+        <Column Name="MontoDebitado" DataType="System.Decimal"/>
+        <Column Name="Transferencia" DataType="System.Decimal"/>
+        <Column Name="Pago" DataType="System.Decimal"/>
+        <Column Name="Total" DataType="System.Decimal"/>
+        <Column Name="Debe" DataType="System.Decimal"/>
+        <Column Name="Devuelta" DataType="System.Decimal"/>
+        <Column Name="FechaCreacion" DataType="System.DateTime"/>
+        <CommandParameter Name="Busqueda" DataType="22"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <MsSqlDataConnection Name="Connection1" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFf644O4fHQURdGmAL49g67eI00HoDBVuBfIVfnFQ5hsDkze76ig/4QTafeyiNn3NWifQ1We6BEpPHDkBpFOU770B+fguPZ26jSEtl3cmp5Ndblfab/u9GmTeKULA+j9/b">
+      <TableDataSource Name="Table1" Alias="Compras" DataType="System.Int32" Enabled="true" SelectCommand="exec comprasbusqueda @busqueda">
+        <Column Name="IdCompra" DataType="System.Int32"/>
+        <Column Name="IdUsuario" DataType="System.Int32"/>
+        <Column Name="Usuario" DataType="System.String"/>
+        <Column Name="IdSuplidor" DataType="System.Int32"/>
+        <Column Name="NombreSuplidor" DataType="System.String"/>
+        <Column Name="IdEmpresa" DataType="System.Int32"/>
+        <Column Name="NroComprobante" DataType="System.String"/>
+        <Column Name="MetodoPago" DataType="System.String"/>
+        <Column Name="TipoTarjeta" DataType="System.String"/>
+        <Column Name="EstadoCompra" DataType="System.String"/>
+        <Column Name="Descripcion" DataType="System.String"/>
+        <Column Name="NroTarjeta" DataType="System.String"/>
+        <Column Name="TarjetaHabiente" DataType="System.String"/>
+        <Column Name="Efectivo" DataType="System.Decimal"/>
+        <Column Name="MontoDebitado" DataType="System.Decimal"/>
+        <Column Name="Transferencia" DataType="System.Decimal"/>
+        <Column Name="Pago" DataType="System.Decimal"/>
+        <Column Name="Total" DataType="System.Decimal"/>
+        <Column Name="Debe" DataType="System.Decimal"/>
+        <Column Name="Devuelta" DataType="System.Decimal"/>
+        <Column Name="FechaCreacion" DataType="System.DateTime"/>
+        <CommandParameter Name="Busqueda" DataType="22"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="66.15" CanGrow="true">
+      <TextObject Name="Text9" Top="37.8" Width="718.2" Height="28.35" Text="COMPRAS" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 14pt, style=Bold"/>
+      <TextObject Name="Text11" Width="718.2" Height="28.35" Anchor="Top, Left, Right" Fill.Color="WhiteSmoke" CanGrow="true" CanShrink="true" Text="Sistema VentasSoft" Padding="4, 4, 4, 4" Font="Tahoma, 8pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="68.82" Width="718.2" Height="28.35">
+      <TextObject Name="Text2" Width="122.85" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="Codigo de la compra" VertAlign="Center" Font="Tahoma, 7pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text4" Left="113.4" Width="75.6" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="Suplidor" VertAlign="Center" Font="Tahoma, 7pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text6" Left="189" Width="113.4" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="Comprobante" VertAlign="Center" Font="Tahoma, 7pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text8" Left="302.4" Width="122.85" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="Método de pago" VertAlign="Center" Font="Tahoma, 7pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text13" Left="425.25" Width="66.15" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="Estado" VertAlign="Center" Font="Tahoma, 7pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text14" Left="491.4" Width="66.15" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="Pagó" VertAlign="Center" Font="Tahoma, 7pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text15" Left="557.55" Width="66.15" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="Total" VertAlign="Center" Font="Tahoma, 7pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text16" Left="623.7" Width="94.5" Height="28.35" Fill="Glass" Fill.Color="Peru" Fill.Blend="0.16" Fill.Hatch="true" Text="Fecha creación" VertAlign="Center" Font="Tahoma, 7pt, style=Bold" TextFill.Color="White"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="99.83" Width="718.2" Height="28.35" EvenStyle="EvenRows" DataSource="Table1">
+      <TextObject Name="Text1" Width="113.4" Height="18.9" CanGrow="true" CanBreak="false" Text="[Compras.IdCompra]" Font="Tahoma, 7pt, style=Bold"/>
+      <TextObject Name="Text5" Left="189" Width="113.4" Height="18.9" CanBreak="false" Text="[Compras.NroComprobante]" AutoWidth="true" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 7pt, style=Bold"/>
+      <TextObject Name="Text7" Left="302.4" Width="122.85" Height="18.9" CanBreak="false" Text="[Compras.MetodoPago]" AutoWidth="true" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 7pt, style=Bold"/>
+      <TextObject Name="Text17" Left="425.25" Width="66.15" Height="18.9" CanBreak="false" Text="[Compras.EstadoCompra]" AutoWidth="true" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 7pt, style=Bold"/>
+      <TextObject Name="Text18" Left="491.4" Width="66.15" Height="18.9" CanBreak="false" Text="[Compras.Pago]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator="." Format.CurrencySymbol="$" Format.PositivePattern="3" Format.NegativePattern="8" AutoWidth="true" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 7pt, style=Bold" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text19" Left="557.55" Width="66.15" Height="18.9" CanBreak="false" Text="[Compras.Total]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator="." Format.CurrencySymbol="$" Format.PositivePattern="3" Format.NegativePattern="8" AutoWidth="true" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 7pt, style=Bold" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text20" Left="623.7" Width="94.5" Height="18.9" CanBreak="false" Text="[Compras.FechaCreacion]" Format="Date" Format.Format="d" AutoWidth="true" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 7pt, style=Bold"/>
+      <TextObject Name="Text3" Left="113.4" Width="75.6" Height="28.35" CanGrow="true" CanBreak="false" Text="[Compras.NombreSuplidor]" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 7pt, style=Bold"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="130.85" Width="718.2" Height="28.35" Fill.Color="WhiteSmoke">
+      <TextObject Name="Text10" Left="614.25" Top="9.45" Width="94.5" Height="18.9" Text="[PageN]" HorzAlign="Right" Font="Tahoma, 8pt"/>
+      <TextObject Name="Text12" Left="9.45" Width="217.35" Height="28.35" Cursor="Hand" Hyperlink.Value="https://www.fast-report.com/en/product/fast-report-net/" Text="Generated by FastReport .NET" VertAlign="Center" Font="Tahoma, 8pt, style=Underline" TextFill.Color="Blue"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,395 @@
+*GPDSpecVersion: "1.0"
+*Include: "StdNames.gpd"
+*GPDFileVersion: "1.0"
+*GPDFileName: "POS76_76EN.GPD"
+*ModelName: "76mm Series Printer"
+*MasterUnits: PAIR(160, 144)
+*PrinterType: SERIAL
+*Feature: Orientation
+{
+    *rcNameID: =ORIENTATION_DISPLAY
+    *DefaultOption: PORTRAIT
+    *Option: PORTRAIT
+    {
+        *rcNameID: =PORTRAIT_DISPLAY
+    }
+    *Option: LANDSCAPE_CC270
+    {
+        *rcNameID: =LANDSCAPE_DISPLAY
+    }
+}
+*Feature: InputBin
+{
+    *rcNameID: =PAPER_SOURCE_DISPLAY
+    *DefaultOption: UPPER
+    *Option: UPPER
+    {
+        *rcNameID: =UPPER_TRAY_DISPLAY
+    }
+
+    *%*rcNameID: =PAPER_SOURCE_DISPLAY
+    *%*DefaultOption: Option1
+    
+    *%*Option: Option1
+    *%{
+        *%*rcNameID: 261
+        *%*OptionID: 261
+        *%*Command: CmdSelect
+        *%{
+            *%*Order: DOC_SETUP.2
+            *%*%*Cmd: "<1D>(E<000031><48>"		*%普通纸
+	    *%*Cmd: ""
+        *%}
+    *%}
+    *%*Option: Option2
+    *%{
+        *%*rcNameID: 262
+        *%*OptionID: 262
+        *%*Command: CmdSelect
+        *%{
+            *%*Order: DOC_SETUP.2
+            *%*%*Cmd: "<1D>(E<000031><49><1D>(F<040001000000><1D>(F<040002000000><1D0C>"	*%黑标纸,设置黑标偏移量,送黑标纸到打印起始位置
+            *%*Cmd: "<1D0C>"				*%黑标纸
+        *%}
+    *%}
+}
+*Feature: Resolution
+{
+    *rcNameID: =RESOLUTION_DISPLAY
+    *DefaultOption: Option1
+    *Option: Option1
+    {
+        *Name: "160 x 144 " =DOTS_PER_INCH
+        *DPI: PAIR(160, 144)
+        *TextDPI: PAIR(160, 144)
+        *PinsPerLogPass: 16
+        *PinsPerPhysPass: 8
+        EXTERN_GLOBAL: *StripBlanks: LIST(TRAILING)
+*% Warning: this resolution has RES_BO_NO_ADJACENT set in GPC, which is ignored by GPD. Custom code is needed.
+        *SpotDiameter: 140
+        *Command: CmdSendBlockData { *Cmd : "<1B>*<01>" %l{NumOfDataBytes} }
+    }
+    *Option: Option2
+    {
+        *Name: "160 x 72 " =DOTS_PER_INCH
+        *DPI: PAIR(160, 72)
+        *TextDPI: PAIR(160, 72)
+        *PinsPerLogPass: 8
+        *PinsPerPhysPass: 8
+        EXTERN_GLOBAL: *StripBlanks: LIST(TRAILING)
+        *SpotDiameter: 140
+        *Command: CmdSendBlockData { *Cmd : "<1B>*<01>" %l{NumOfDataBytes} }
+    }
+    *Option: Option3
+    {
+        *Name: "80 x 72 " =DOTS_PER_INCH
+        *DPI: PAIR(80, 72)
+        *TextDPI: PAIR(80, 72)
+        *PinsPerLogPass: 8
+        *PinsPerPhysPass: 8
+        EXTERN_GLOBAL: *StripBlanks: LIST(TRAILING)
+*% Warning: this resolution has RES_BO_NO_ADJACENT set in GPC, which is ignored by GPD. Custom code is needed.
+        *SpotDiameter: 140
+        *Command: CmdSendBlockData { *Cmd : "<1B>*<00>" %l{NumOfDataBytes} }
+    }
+}
+*Feature: PaperSize
+{
+    *rcNameID: =PAPER_SIZE_DISPLAY
+    *DefaultOption: Option2
+    *Option: Option3
+    {
+        *Name: "76(63.5) x 3276 mm"
+        *%OptionID: 258
+        *PageDimensions: PAIR(400, 18573)
+        *PrintableArea: PAIR(400, 18573)
+        *PrintableOrigin: PAIR(0, 0)
+    }
+    *Option: Option2
+    {
+        *Name: "76(63.5) x 297 mm"
+        *%OptionID: 259
+        *PageDimensions: PAIR(400, 1684)
+        *PrintableArea: PAIR(400, 1684)
+        *PrintableOrigin: PAIR(0, 0)
+    }
+    *Option: Option1
+    {
+        *Name: "76(63.5) x 210 mm"
+        *%OptionID: 260
+        *PageDimensions: PAIR(400, 1191)
+        *PrintableArea: PAIR(400, 1191)
+        *PrintableOrigin: PAIR(0, 0)
+    }
+    *Option: CUSTOMSIZE
+    {
+        *rcNameID: =USER_DEFINED_SIZE_DISPLAY
+        *MinSize: PAIR(200, 200)
+        *MaxSize: PAIR(400, 32767)
+        *MaxPrintableWidth: 400
+        *MinLeftMargin: 0
+        *CenterPrintable?: TRUE
+    }
+}
+*Feature: MediaType
+{
+    *rcNameID: =MEDIA_TYPE_DISPLAY
+    *DefaultOption: Option1
+    *Option: Option1
+    {
+        *Name: "no drawer"
+        *%OptionID: 263			*%无钱箱
+    }
+    *Option: Option2
+    {
+        *Name: "open drawer #1 before printing"
+        *%OptionID: 264
+        *Command: CmdSelect
+        {
+            *Order: DOC_SETUP.3
+            *Cmd: "<1B>p<003232> " 	*%打印前打开钱箱#1
+        }
+    }
+    *Option: Option3
+    {
+        *Name: "open drawer #2 before printing"
+        *%OptionID: 265
+        *Command: CmdSelect
+        {
+            *Order: DOC_SETUP.3
+            *Cmd: "<1B>p<013232> " 	*%打印前打开钱箱#2
+        }
+    }
+    *Option: Option4
+    {
+        *Name: "open drawer #1+#2 before printing"
+        *%OptionID: 266
+        *Command: CmdSelect
+        {
+            *Order: DOC_SETUP.3
+            *Cmd: "<1B>p<003232> <1B>p<013232> " *%打印前打开钱箱#1+#2
+        }
+    }
+    *Option: Option5
+    {
+        *Name: "open drawer #1 after printing"
+        *%OptionID: 267
+        *Command: CmdSelect
+        {
+            *Order: JOB_FINISH.3
+            *Cmd: "<1B>p<003232> " 	*%打印后打开钱箱#1
+        }
+    }
+    *Option: Option6
+    {
+        *Name: "open drawer #2 after printing"
+        *%OptionID: 268
+        *Command: CmdSelect
+        {
+            *Order: JOB_FINISH.3
+            *Cmd: "<1B>p<013232> " 	*%打印后打开钱箱#2
+        }
+    }
+    *Option: Option7
+    {
+        *Name: "open drawer #1+#2 after printing"
+        *%OptionID: 269
+        *Command: CmdSelect
+        {
+            *Order: JOB_FINISH.3
+            *Cmd: "<1B>p<003232> <1B>p<013232> " *%打印后打开钱箱#1+#2
+        }
+    }
+}
+*Feature: OutputBin
+{
+    *%*rcNameID: =OUTPUTBIN_DISPLAY
+    *Name: "Direction"
+    *%rcNameID: 290
+    *DefaultOption: Option1
+    *Option: Option1
+    {
+        *Name: "single direction printing"
+        *Command: CmdSelect
+        {
+            *Order: DOC_SETUP.4
+            *Cmd: "<1B>U<01>"		*%single direction printing
+        }
+    }
+    *Option: Option2
+    {
+        *Name: "bidirectional printing"
+        *Command: CmdSelect
+        {
+            *Order: DOC_SETUP.4
+            *Cmd: "<1B>U<00>"		*%bidirectional printing
+        }
+    }
+}
+*Feature: pBlackMarkSelect	*%黑标选择
+{
+    *Name: "Paper"
+    *DefaultOption: Option1
+    *Option: Option1
+    {
+        *Name: "Plain Paper"
+        *%OptionID: 261
+        *Command: CmdSelect
+        {
+            *Order: DOC_SETUP.2
+            *%*Cmd: "<1D>(E<000031><48>"		*%普通纸
+	    *Cmd: ""
+        }
+    }
+    *Option: Option2
+    {
+        *Name: "BlackMark Paper"
+        *%OptionID: 262
+        *Command: CmdSelect
+        {
+            *Order: DOC_SETUP.2
+            *%*Cmd: "<1D>(E<000031><49><1D>(F<040001000000><1D>(F<040002000000><1D0C>"	*%黑标纸,设置黑标偏移量,送黑标纸到打印起始位置
+            *Cmd: "<1D0C>"				*%黑标纸
+        }
+    }
+}
+*Feature: pCutterSelect		*%切纸选择
+{
+    *Name: "Cutting"
+    *%rcNameID: =OUTPUTBIN_DISPLAY
+    *%*FeatureType: PRINTER_PROPERTY
+    *DefaultOption: Option3
+    *Option: Option1
+    {
+        *Name: "(Doc)Feed,NoCut"
+ 	*switch: pBlackMarkSelect
+        {
+            *case: Option1
+            {
+        	*Command: CmdSelect
+        	{
+            		*Order: JOB_FINISH.2			*%当是普通纸时
+            		*Cmd: "<1B>J<AA>"			*%进纸不切，进纸D2=210x0.176=37mm            
+        	}
+	    }
+	    *case: Option2
+            {
+		*Command: CmdSelect
+        	{
+            		*Order: JOB_FINISH.2
+            		*Cmd: "<1D>VB<00>"			*%当是黑标纸时
+        	}
+	    }
+	}
+    }    
+    *Option: Option2
+    {
+        *Name: "(Doc)NoFeed,NoCut"
+	*switch: pBlackMarkSelect
+        {
+            *case: Option1
+            {
+        	*Command: CmdSelect
+        	{
+            	    *Order: JOB_FINISH.2		*%当是普通纸时
+            	    *Cmd: ""				*%不切不进纸
+		}
+	    }	
+ 	    *case: Option2
+            {
+		*Command: CmdSelect
+        	{
+            	    *Order: JOB_FINISH.2
+            	    *Cmd: "<1D>VB<00>"			*%当是黑标纸时
+        	}
+	    }	
+        }
+    }
+    *Option: Option3
+    {
+        *Name: "(Doc)Part Cut"
+        *Command: CmdSelect
+        {
+            *Order: JOB_FINISH.2
+            *Cmd: "<1D>VB<00><1D>D<00>"			*%半切
+        }
+    }    
+    *Option: Option4
+    {
+        *Name: "(Doc)Full Cut"
+        *Command: CmdSelect
+        {
+            *Order: JOB_FINISH.2
+            *Cmd: "<1D>VA<00><1D>D<00>"			*%全切
+        }
+    } 
+    *Option: Option5
+    {
+        *Name: "(Page)NoFeed,Cut"
+        *Command: CmdSelect
+        {
+           *Order: PAGE_FINISH.2
+           *Cmd: "<1D>VB<00><1D>D<00>"			*%半切（页）
+        }
+    }   
+}
+*Command: CmdStartDoc
+{
+    *Order: DOC_SETUP.1
+    *Cmd: "<1B>@<1D>D<01>"			*%初始化
+}
+*Command: CmdStartPage
+{
+    *Order: PAGE_SETUP.1
+    *Cmd: ""			
+}
+*Command: CmdEndJob
+{
+    *Order: JOB_FINISH.1
+    *Cmd: "<1B>J<0F>"			*%打印进纸0F=15x0.176=2.64mm		
+}
+*Command: CmdEndPage
+{
+    *Order: PAGE_FINISH.1
+    *Cmd: "<0D0A>"		
+}
+*RotateCoordinate?: FALSE
+*RotateRaster?: FALSE
+*RotateFont?: FALSE
+*switch: Orientation
+{
+    *case: PORTRAIT
+    {
+        *TextCaps: LIST(TC_OP_CHARACTER,TC_EA_DOUBLE,TC_IA_ABLE,TC_UA_ABLE,TC_RA_ABLE)
+    }
+    *case: LANDSCAPE_CC270
+    {
+        *TextCaps: LIST(TC_RA_ABLE)
+    }
+}
+*CursorXAfterCR: AT_CURSOR_X_ORIGIN
+*YMoveAttributes: LIST(SEND_CR_FIRST)
+*YMoveThreshold: *
+*YMoveUnit: 144
+*Command: CmdYMoveRelDown { *Cmd : "<1B>J" %c[0,255]{max_repeat(DestYRel )} }
+*Command: CmdCR { *Cmd : "<0D00>" }
+*Command: CmdLF { *Cmd : "<>" }
+*Command: CmdFF { *Cmd : "<>" }
+*EjectPageWithFF?: TRUE
+*OutputDataFormat: V_BYTE
+*OptimizeLeftBound?: FALSE
+*CursorXAfterSendBlockData: AT_GRXDATA_END
+*CursorYAfterSendBlockData: NO_MOVE
+*DefaultFont: 1
+*DefaultCTT: 0
+*switch: Orientation
+{
+    *case: PORTRAIT
+    {
+        *DeviceFonts: LIST(1,2,3,4,5,6,7,8,9,10,11,12)
+    }
+    *case: LANDSCAPE_CC270
+    {
+        *DeviceFonts: LIST()
+    }
+}
